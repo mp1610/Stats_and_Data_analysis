@@ -1,0 +1,226 @@
+---
+title: "MAP501 Coursework Submission"
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    self_contained: yes
+    highlight: textmate
+    toc: yes
+    number_sections: no
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+# Preamble
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  comment = "",
+  results = "hold",
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 4,
+  fig.height = 2.6,
+  fig.align = "center"
+)
+```
+
+```{r}
+
+library("rio")
+library("dplyr")
+library("tidyr")
+library("magrittr")
+library("ggplot2")
+library("pROC")
+library("car")
+library("nnet")
+library("caret")
+library("lme4")
+library("AmesHousing")
+library("here") 
+library("tidyverse") 
+library("lubridate")
+library("janitor")
+library("ggrepel")
+library("sandwich")
+library("investr")
+library("rcompanion")
+library("ggcorrplot")
+library("corrr")
+library("effects")
+
+Ames <- make_ames()
+```
+
+# 1. Data Preparation
+
+## 1a)
+
+Import the soccer.csv dataset as “footballer_data”. (2 points)
+
+```{r}
+footballer_data <- 
+  read_csv(here("data/soccer.csv"))
+```
+
+## 1b)
+
+Ensure all character variables are treated as factors and where variable names have a space, rename
+the variables without these. (3 points)
+
+```{r}
+footballer_data <-
+  footballer_data %>%
+  clean_names() %>%
+  mutate_at(vars(full_name, birthday_gmt, position, current_club, nationality),
+            list(factor))
+
+footballer_data
+```
+
+## 1c)
+
+Remove the columns birthday and birthday_GMT. (2 points)
+
+```{r}
+footballer_data2 <-
+  footballer_data %>%
+  select(-c(birthday, birthday_gmt))
+
+footballer_data2
+```
+
+## 1d)
+
+Remove the cases with age<=15 and age>40. (2 points)
+
+```{r}
+footballer_data3 <-
+  footballer_data2 %>%
+  filter(age > 15 & age <= 40)
+
+max(footballer_data3$age)
+min(footballer_data3$age)
+footballer_data3
+```
+
+# 2. Linear Regression
+
+## 2a)
+
+## 2bi)
+
+## 2bii)
+
+## 2biii)
+
+## 2c)
+
+## 2d)
+
+## 2e)
+
+## 2f)
+
+## 2g)
+
+## 2h)
+
+## 2i)
+
+## 2j)
+
+## 2k)
+
+## 2l)
+
+## 2m)
+
+## 2n)
+
+# 3. Logistic Regression
+
+## 3ai)
+
+## 3aii)
+
+## 3aiii)
+
+## 3aiv)
+
+## 3b)
+
+## 3c)
+
+# 4. Multinomial Regression
+
+## 4a)
+
+## 4b)
+
+## 4c)
+
+# 5. Poisson/quasipoisson Regression
+
+## 5a) # do i need dimensionality, missingness, and correlations???
+
+For the “footballer_data” dataset, create a model appearances_mod to predict the total number of
+overall appearances a player had based on position and age. (2 points)
+
+```{r}
+# does it want a LaTex equation or??? do i need to use predict function???
+appearances_mod <-
+  glm(appearances_overall~position + age, data = footballer_data3, family = "poisson")
+
+summary(appearances_mod)
+```
+
+## 5b)
+
+Check the assumption of the model using a diagnostic plot and comment on your findings. (3 points)
+
+Using a poisson model assumes that mean = variance, hence the dispersion parameter is assumed to be 1. This can be tested using a plot of 'Absolute value of residuals' versus 'Predicted Means'. which should look flat and hover around 0.8 (green line).
+
+```{r}
+plot(appearances_mod,which=3)
+abline(h=0.8,col=3)
+```
+
+The figure above shows that the red line (data set result) is not perfectly flat and does not hover around the green line (0.8), hence the model is not the most reasonable to use for this question. The model shows the data is heavily overdispersed, which could also suggest that we have not accounted for all of the important predictors in our model.
+
+Another assumption of the Poisson model is linearity. The figure below shows the residuals vs fitted data, to see if the model data (red line) fits in with the assumption of linearity. It is evident that this is not the case as the red line slowly increases from approximately -2 until 1 (estimate), after which it decreases linearly to -3. This completely goes against the assumption of linearity as the plot is not flat at all.
+```{r}
+plot(appearances_mod, which = 1)
+```
+
+The next assumption made for a Poisson Model is the assumption of Distribution. For deviance residuals, we investigage a qqplot to see if the data increases linearly. The figure below shows that the model is not perfect as the values deviate from the qqplot line towards the start and end of the x-axis (Theoretical Quantities). Between x-values of -1 to 1 however, the data satisfies the qqplot, suggesting that the Poisson Model is not completely incorrect in satisfying the distribution assumption.
+
+```{r}
+plot(appearances_mod, which = 2)
+```
+
+Thirdly, a Poisson Model assumes Independence. This investigates residuals as a function of order of datapoints for evidence of "snaking". However, since the dataset is not of natural order, this cannot be investigated further.
+
+As the Poisson Model above does not satisfy most assumptions such as 'the linearity assumption' and 'the variance = mean assumption', it is worth creating a model where variance is not equal to mean, hence the dispersion parameter is not equal to 1. This can be done using a quasipoisson model which assumes that dispersion is a linear function of mean. The summary below shows that the dispersion parameter is not equal to 1, instead it is equal to 8.95. As the dispersion parameter is greater than 1, it still suggests that there is overdispersion in the data.
+
+```{r}
+quasiappearances_mod <-
+  glm(appearances_overall~position + age, data = footballer_data3, family = "quasipoisson")
+
+summary(quasiappearances_mod)
+```
+
+Using a plot of 'Absolute value of residuals' versus 'Predicted Means', the quasipoisson model can be evaluated too assuming the model line (red line) should be fairly linear and relatively close to the 0.8 (green line). While the figure below is not perfect, it is definitely an improvement from the Poisson Model in which the Residual value was not even close to 0.8, nor was it as linear.
+```{r}
+plot(quasiappearances_mod,which=3)
+abline(h=0.8,col=3)
+```
+
+## 5c)
+
+What do the coefficients of the model tell us about? which position has the most appearances? How
+many times more appearances do forwards get on average than goalkeepers? (3 points)

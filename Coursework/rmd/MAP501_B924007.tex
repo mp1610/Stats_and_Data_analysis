@@ -1,0 +1,553 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={MAP501 Coursework Submission},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{MAP501 Coursework Submission}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{preamble}{%
+\section{Preamble}\label{preamble}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"rio"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"tidyr"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"magrittr"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"pROC"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"car"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"nnet"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"caret"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"lme4"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"AmesHousing"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"here"}\NormalTok{) }
+\FunctionTok{library}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{) }
+\FunctionTok{library}\NormalTok{(}\StringTok{"lubridate"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"janitor"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"ggrepel"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"sandwich"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"investr"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"rcompanion"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"ggcorrplot"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"corrr"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"effects"}\NormalTok{)}
+
+\NormalTok{Ames }\OtherTok{\textless{}{-}} \FunctionTok{make\_ames}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{data-preparation}{%
+\section{1. Data Preparation}\label{data-preparation}}
+
+\hypertarget{a}{%
+\subsection{1a)}\label{a}}
+
+Import the soccer.csv dataset as ``footballer\_data''. (2 points)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{footballer\_data }\OtherTok{\textless{}{-}} 
+  \FunctionTok{read\_csv}\NormalTok{(}\FunctionTok{here}\NormalTok{(}\StringTok{"data/soccer.csv"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{b}{%
+\subsection{1b)}\label{b}}
+
+Ensure all character variables are treated as factors and where variable
+names have a space, rename the variables without these. (3 points)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{footballer\_data }\OtherTok{\textless{}{-}}
+\NormalTok{  footballer\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{clean\_names}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate\_at}\NormalTok{(}\FunctionTok{vars}\NormalTok{(full\_name, birthday\_gmt, position, current\_club, nationality),}
+            \FunctionTok{list}\NormalTok{(factor))}
+
+\NormalTok{footballer\_data}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 570 x 45
+   full_~1   age birth~2 birth~3 posit~4 curre~5 minut~6 minut~7 minut~8 natio~9
+   <fct>   <dbl>   <dbl> <fct>   <fct>   <fct>     <dbl>   <dbl>   <dbl> <fct>  
+ 1 Aaron ~    32  6.30e8 15/12/~ Defend~ West H~    1589     888     701 England
+ 2 Aaron ~    35  5.46e8 16/04/~ Midfie~ Burnley    1217     487     730 England
+ 3 Aaron ~    31  6.53e8 15/09/~ Midfie~ Hudder~    2327    1190    1137 Austra~
+ 4 Aaron ~    31  6.62e8 26/12/~ Midfie~ Arsenal    1327     689     638 Wales  
+ 5 Aaron ~    22  9.68e8 07/09/~ Forward Hudder~      69      14      55 England
+ 6 Aaron ~    24  8.81e8 26/11/~ Midfie~ Crysta~    3135    1605    1530 England
+ 7 Abdelh~    25  8.49e8 28/11/~ Midfie~ Hudder~      49       0      49 Morocco
+ 8 Abdoul~    29  7.26e8 01/01/~ Midfie~ Watford    3062    1566    1496 France 
+ 9 Abouba~    27  7.95e8 07/03/~ Forward Fulham      687     468     219 France 
+10 Adalbe~    25  8.65e8 31/05/~ Forward Watford       0       0       0 Venezu~
+# ... with 560 more rows, 35 more variables: appearances_overall <dbl>,
+#   appearances_home <dbl>, appearances_away <dbl>, goals_overall <dbl>,
+#   goals_home <dbl>, goals_away <dbl>, assists_overall <dbl>,
+#   assists_home <dbl>, assists_away <dbl>, penalty_goals <dbl>,
+#   penalty_misses <dbl>, clean_sheets_overall <dbl>, clean_sheets_home <dbl>,
+#   clean_sheets_away <dbl>, conceded_overall <dbl>, conceded_home <dbl>,
+#   conceded_away <dbl>, yellow_cards_overall <dbl>, ...
+\end{verbatim}
+
+\hypertarget{c}{%
+\subsection{1c)}\label{c}}
+
+Remove the columns birthday and birthday\_GMT. (2 points)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{footballer\_data2 }\OtherTok{\textless{}{-}}
+\NormalTok{  footballer\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(birthday, birthday\_gmt))}
+
+\NormalTok{footballer\_data2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 570 x 43
+   full_~1   age posit~2 curre~3 minut~4 minut~5 minut~6 natio~7 appea~8 appea~9
+   <fct>   <dbl> <fct>   <fct>     <dbl>   <dbl>   <dbl> <fct>     <dbl>   <dbl>
+ 1 Aaron ~    32 Defend~ West H~    1589     888     701 England      20      11
+ 2 Aaron ~    35 Midfie~ Burnley    1217     487     730 England      16       7
+ 3 Aaron ~    31 Midfie~ Hudder~    2327    1190    1137 Austra~      29      15
+ 4 Aaron ~    31 Midfie~ Arsenal    1327     689     638 Wales        28      14
+ 5 Aaron ~    22 Forward Hudder~      69      14      55 England       2       1
+ 6 Aaron ~    24 Midfie~ Crysta~    3135    1605    1530 England      35      18
+ 7 Abdelh~    25 Midfie~ Hudder~      49       0      49 Morocco       2       0
+ 8 Abdoul~    29 Midfie~ Watford    3062    1566    1496 France       35      18
+ 9 Abouba~    27 Forward Fulham      687     468     219 France       13       8
+10 Adalbe~    25 Forward Watford       0       0       0 Venezu~       0       0
+# ... with 560 more rows, 33 more variables: appearances_away <dbl>,
+#   goals_overall <dbl>, goals_home <dbl>, goals_away <dbl>,
+#   assists_overall <dbl>, assists_home <dbl>, assists_away <dbl>,
+#   penalty_goals <dbl>, penalty_misses <dbl>, clean_sheets_overall <dbl>,
+#   clean_sheets_home <dbl>, clean_sheets_away <dbl>, conceded_overall <dbl>,
+#   conceded_home <dbl>, conceded_away <dbl>, yellow_cards_overall <dbl>,
+#   red_cards_overall <dbl>, goals_involved_per_90_overall <dbl>, ...
+\end{verbatim}
+
+\hypertarget{d}{%
+\subsection{1d)}\label{d}}
+
+Remove the cases with age\textless=15 and age\textgreater40. (2 points)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{footballer\_data3 }\OtherTok{\textless{}{-}}
+\NormalTok{  footballer\_data2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(age }\SpecialCharTok{\textgreater{}} \DecValTok{15} \SpecialCharTok{\&}\NormalTok{ age }\SpecialCharTok{\textless{}=} \DecValTok{40}\NormalTok{)}
+
+\FunctionTok{max}\NormalTok{(footballer\_data3}\SpecialCharTok{$}\NormalTok{age)}
+\FunctionTok{min}\NormalTok{(footballer\_data3}\SpecialCharTok{$}\NormalTok{age)}
+\NormalTok{footballer\_data3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 40
+[1] 20
+# A tibble: 565 x 43
+   full_~1   age posit~2 curre~3 minut~4 minut~5 minut~6 natio~7 appea~8 appea~9
+   <fct>   <dbl> <fct>   <fct>     <dbl>   <dbl>   <dbl> <fct>     <dbl>   <dbl>
+ 1 Aaron ~    32 Defend~ West H~    1589     888     701 England      20      11
+ 2 Aaron ~    35 Midfie~ Burnley    1217     487     730 England      16       7
+ 3 Aaron ~    31 Midfie~ Hudder~    2327    1190    1137 Austra~      29      15
+ 4 Aaron ~    31 Midfie~ Arsenal    1327     689     638 Wales        28      14
+ 5 Aaron ~    22 Forward Hudder~      69      14      55 England       2       1
+ 6 Aaron ~    24 Midfie~ Crysta~    3135    1605    1530 England      35      18
+ 7 Abdelh~    25 Midfie~ Hudder~      49       0      49 Morocco       2       0
+ 8 Abdoul~    29 Midfie~ Watford    3062    1566    1496 France       35      18
+ 9 Abouba~    27 Forward Fulham      687     468     219 France       13       8
+10 Adalbe~    25 Forward Watford       0       0       0 Venezu~       0       0
+# ... with 555 more rows, 33 more variables: appearances_away <dbl>,
+#   goals_overall <dbl>, goals_home <dbl>, goals_away <dbl>,
+#   assists_overall <dbl>, assists_home <dbl>, assists_away <dbl>,
+#   penalty_goals <dbl>, penalty_misses <dbl>, clean_sheets_overall <dbl>,
+#   clean_sheets_home <dbl>, clean_sheets_away <dbl>, conceded_overall <dbl>,
+#   conceded_home <dbl>, conceded_away <dbl>, yellow_cards_overall <dbl>,
+#   red_cards_overall <dbl>, goals_involved_per_90_overall <dbl>, ...
+\end{verbatim}
+
+\hypertarget{linear-regression}{%
+\section{2. Linear Regression}\label{linear-regression}}
+
+\hypertarget{a-1}{%
+\subsection{2a)}\label{a-1}}
+
+\hypertarget{bi}{%
+\subsection{2bi)}\label{bi}}
+
+\hypertarget{bii}{%
+\subsection{2bii)}\label{bii}}
+
+\hypertarget{biii}{%
+\subsection{2biii)}\label{biii}}
+
+\hypertarget{c-1}{%
+\subsection{2c)}\label{c-1}}
+
+\hypertarget{d-1}{%
+\subsection{2d)}\label{d-1}}
+
+\hypertarget{e}{%
+\subsection{2e)}\label{e}}
+
+\hypertarget{f}{%
+\subsection{2f)}\label{f}}
+
+\hypertarget{g}{%
+\subsection{2g)}\label{g}}
+
+\hypertarget{h}{%
+\subsection{2h)}\label{h}}
+
+\hypertarget{i}{%
+\subsection{2i)}\label{i}}
+
+\hypertarget{j}{%
+\subsection{2j)}\label{j}}
+
+\hypertarget{k}{%
+\subsection{2k)}\label{k}}
+
+\hypertarget{l}{%
+\subsection{2l)}\label{l}}
+
+\hypertarget{m}{%
+\subsection{2m)}\label{m}}
+
+\hypertarget{n}{%
+\subsection{2n)}\label{n}}
+
+\hypertarget{logistic-regression}{%
+\section{3. Logistic Regression}\label{logistic-regression}}
+
+\hypertarget{ai}{%
+\subsection{3ai)}\label{ai}}
+
+\hypertarget{aii}{%
+\subsection{3aii)}\label{aii}}
+
+\hypertarget{aiii}{%
+\subsection{3aiii)}\label{aiii}}
+
+\hypertarget{aiv}{%
+\subsection{3aiv)}\label{aiv}}
+
+\hypertarget{b-1}{%
+\subsection{3b)}\label{b-1}}
+
+\hypertarget{c-2}{%
+\subsection{3c)}\label{c-2}}
+
+\hypertarget{multinomial-regression}{%
+\section{4. Multinomial Regression}\label{multinomial-regression}}
+
+\hypertarget{a-2}{%
+\subsection{4a)}\label{a-2}}
+
+\hypertarget{b-2}{%
+\subsection{4b)}\label{b-2}}
+
+\hypertarget{c-3}{%
+\subsection{4c)}\label{c-3}}
+
+\hypertarget{poissonquasipoisson-regression}{%
+\section{5. Poisson/quasipoisson
+Regression}\label{poissonquasipoisson-regression}}
+
+\hypertarget{a-do-i-need-dimensionality-missingness-and-correlations}{%
+\subsection{5a) \# do i need dimensionality, missingness, and
+correlations???}\label{a-do-i-need-dimensionality-missingness-and-correlations}}
+
+For the ``footballer\_data'' dataset, create a model appearances\_mod to
+predict the total number of overall appearances a player had based on
+position and age. (2 points)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# does it want a LaTex equation or??? do i need to use predict function???}
+\NormalTok{appearances\_mod }\OtherTok{\textless{}{-}}
+  \FunctionTok{glm}\NormalTok{(appearances\_overall}\SpecialCharTok{\textasciitilde{}}\NormalTok{position }\SpecialCharTok{+}\NormalTok{ age, }\AttributeTok{data =}\NormalTok{ footballer\_data3, }\AttributeTok{family =} \StringTok{"poisson"}\NormalTok{)}
+
+\FunctionTok{summary}\NormalTok{(appearances\_mod)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Call:
+glm(formula = appearances_overall ~ position + age, family = "poisson", 
+    data = footballer_data3)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-7.5377  -3.5215   0.0351   2.1892   6.1853  
+
+Coefficients:
+                    Estimate Std. Error z value Pr(>|z|)    
+(Intercept)         1.575316   0.074884  21.037  < 2e-16 ***
+positionForward     0.110606   0.027448   4.030 5.59e-05 ***
+positionGoalkeeper -0.364605   0.040780  -8.941  < 2e-16 ***
+positionMidfielder  0.118259   0.023309   5.074 3.90e-07 ***
+age                 0.043704   0.002392  18.275  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 6539.7  on 564  degrees of freedom
+Residual deviance: 6114.4  on 560  degrees of freedom
+AIC: 8417.1
+
+Number of Fisher Scoring iterations: 5
+\end{verbatim}
+
+\hypertarget{b-3}{%
+\subsection{5b)}\label{b-3}}
+
+Check the assumption of the model using a diagnostic plot and comment on
+your findings. (3 points)
+
+Using a poisson model assumes that mean = variance, hence the dispersion
+parameter is assumed to be 1. This can be tested using a plot of
+`Absolute value of residuals' versus `Predicted Means'. which should
+look flat and hover around 0.8 (green line).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(appearances\_mod,}\AttributeTok{which=}\DecValTok{3}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h=}\FloatTok{0.8}\NormalTok{,}\AttributeTok{col=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{MAP501_B924007_files/figure-latex/unnamed-chunk-7-1} \end{center}
+
+The figure above shows that the red line (data set result) is not
+perfectly flat and does not hover around the green line (0.8), hence the
+model is not the most reasonable to use for this question. The model
+shows the data is heavily overdispersed, which could also suggest that
+we have not accounted for all of the important predictors in our model.
+
+Another assumption of the Poisson model is linearity. The figure below
+shows the residuals vs fitted data, to see if the model data (red line)
+fits in with the assumption of linearity. It is evident that this is not
+the case as the red line slowly increases from approximately -2 until 1
+(estimate), after which it decreases linearly to -3. This completely
+goes against the assumption of linearity as the plot is not flat at all.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(appearances\_mod, }\AttributeTok{which =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{MAP501_B924007_files/figure-latex/unnamed-chunk-8-1} \end{center}
+
+The next assumption made for a Poisson Model is the assumption of
+Distribution. For deviance residuals, we investigage a qqplot to see if
+the data increases linearly. The figure below shows that the model is
+not perfect as the values deviate from the qqplot line towards the start
+and end of the x-axis (Theoretical Quantities). Between x-values of -1
+to 1 however, the data satisfies the qqplot, suggesting that the Poisson
+Model is not completely incorrect in satisfying the distribution
+assumption.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(appearances\_mod, }\AttributeTok{which =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{MAP501_B924007_files/figure-latex/unnamed-chunk-9-1} \end{center}
+
+Thirdly, a Poisson Model assumes Independence. This investigates
+residuals as a function of order of datapoints for evidence of
+``snaking''. However, since the dataset is not of natural order, this
+cannot be investigated further.
+
+As the Poisson Model above does not satisfy most assumptions such as
+`the linearity assumption' and `the variance = mean assumption', it is
+worth creating a model where variance is not equal to mean, hence the
+dispersion parameter is not equal to 1. This can be done using a
+quasipoisson model which assumes that dispersion is a linear function of
+mean. The summary below shows that the dispersion parameter is not equal
+to 1, instead it is equal to 8.95. As the dispersion parameter is
+greater than 1, it still suggests that there is overdispersion in the
+data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{quasiappearances\_mod }\OtherTok{\textless{}{-}}
+  \FunctionTok{glm}\NormalTok{(appearances\_overall}\SpecialCharTok{\textasciitilde{}}\NormalTok{position }\SpecialCharTok{+}\NormalTok{ age, }\AttributeTok{data =}\NormalTok{ footballer\_data3, }\AttributeTok{family =} \StringTok{"quasipoisson"}\NormalTok{)}
+
+\FunctionTok{summary}\NormalTok{(quasiappearances\_mod)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Call:
+glm(formula = appearances_overall ~ position + age, family = "quasipoisson", 
+    data = footballer_data3)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-7.5377  -3.5215   0.0351   2.1892   6.1853  
+
+Coefficients:
+                    Estimate Std. Error t value Pr(>|t|)    
+(Intercept)         1.575316   0.223980   7.033 5.90e-12 ***
+positionForward     0.110606   0.082097   1.347  0.17844    
+positionGoalkeeper -0.364605   0.121975  -2.989  0.00292 ** 
+positionMidfielder  0.118259   0.069717   1.696  0.09039 .  
+age                 0.043704   0.007153   6.110 1.87e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for quasipoisson family taken to be 8.946343)
+
+    Null deviance: 6539.7  on 564  degrees of freedom
+Residual deviance: 6114.4  on 560  degrees of freedom
+AIC: NA
+
+Number of Fisher Scoring iterations: 5
+\end{verbatim}
+
+Using a plot of `Absolute value of residuals' versus `Predicted Means',
+the quasipoisson model can be evaluated too assuming the model line (red
+line) should be fairly linear and relatively close to the 0.8 (green
+line). While the figure below is not perfect, it is definitely an
+improvement from the Poisson Model in which the Residual value was not
+even close to 0.8, nor was it as linear.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(quasiappearances\_mod,}\AttributeTok{which=}\DecValTok{3}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h=}\FloatTok{0.8}\NormalTok{,}\AttributeTok{col=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{MAP501_B924007_files/figure-latex/unnamed-chunk-11-1} \end{center}
+
+\hypertarget{c-4}{%
+\subsection{5c)}\label{c-4}}
+
+What do the coefficients of the model tell us about? which position has
+the most appearances? How many times more appearances do forwards get on
+average than goalkeepers? (3 points)
+
+\end{document}
